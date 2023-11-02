@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Інформація</title>
+</head>
+<body>
+    <h1>Інформація</h1>
+    {% if username %}
+    <p>Привіт, {{ username }}!</p>
+    <form method="post" action="/logout">
+        <input type="submit" value="Вийти">
+    </form>
+
+    <!-- Форма для зміни паролю користувача -->
+<h2>Змінити пароль</h2>
+<form method="post" action="/change_password">
+    <label for="new_password">Новий пароль:</label>
+    <input type="password" name="new_password" id="new_password" required>
+    <input type="submit" value="Змінити пароль">
+</form>
+
+    
+    <!-- Форма для додавання кукі -->
+    <h2>Додати або видалити кукі</h2>
+    <form method="post" action="/add_cookie">
+        <label for="cookie_key">Ключ:</label>
+        <input type="text" name="cookie_key" id="cookie_key" required>
+        <label for="cookie_value">Значення:</label>
+        <input type="text" name="cookie_value" id="cookie_value" required>
+        <label for="cookie_expiration">Термін дії (у секундах):</label>
+        <input type="text" name="cookie_expiration" id="cookie_expiration" required>
+        <input type="submit" value="Додати кукі">
+    </form>
+    
+    <!-- Форма для видалення всіх кукі -->
+    <form method="post" action="/clear_cookies">
+        <input type="submit" value="Видалити всі кукі">
+    </form>    
+    
+    <!-- Таблиця для відображення кукі -->
+<h2>Список збережених кукі:</h2>
+<table>
+    <tr>
+        <th>Ключ</th>
+        <th>Значення</th>
+        <th>Термін дії (сек)</th>
+        <th>Час створення</th>
+    </tr>
+    {% for key, cookie in cookies.items() %}
+    <tr>
+        <td>{{ key }}</td>
+        <td>{{ cookie.value }}</td>
+        <td>{{ cookie.max_age }}</td>
+        <td>{{ cookie.created }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+    
+    {% else %}
+    <p>Для перегляду цієї сторінки, будь ласка, <a href="/login">увійдіть</a>.</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %} Skills {% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <h1 class="title text-center">My Skills</h1>
+</div>
+
+<div class="container mt-4">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th class="text-center">#</th>
+                <th class="text-center">Skill Name</th>
+                <th class="text-center">Proficiency</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for skill in skills %}
+            <tr>
+                <td class="text-center">{{ loop.index }}</td>
+                <td class="text-center">{{ skill["Name"] }}</td>
+                <td>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ skill['Level'] }}%;">
+                            {{ skill['Level'] }}%
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+}
+
+table th {
+    font-size: 1.5em;
+    color: #3498db; /* Changed to a blue color */
+    font-weight: bold;
+    border-bottom: 2px solid #2980b9; /* Darker blue */
+}
+
+table th, table td {
+    text-align: center;
+    padding: 12px;
+}
+
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.nav .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav .container ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    background: #2ecc71; /* Green color */
+}
+
+.nav .container ul a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em; /* Font size increased */
+}
+.nav .container ul li {
+  border-right: 2px double #2980b9;
+    padding-right: 20px;
+}
+
+.alert {
+    min-height: 25px;
+    padding: 15px 10px;
+    border-radius: 15px;
+    width: 20%;
+    font-size: 1.2em; /* Font size increased */
+    background: #f39c12; /* Orange color */
+    position: fixed;
+    z-index: 9999;
+    top: 10px;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+
+}
+.alert button {
+    background: none;
+    border: none;
+    color: #fff;
+}
+
+.alert-danger {
+    color: #e74c3c; /* Red color */
+}
+
+input, textarea {
+    height: 25px;
+    width: 250px;
+    background: #34495e;
+    color: #fff;
+    padding: 10px;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    height: 50px;
+    width: 100%;
+}
+
+form {
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    border-radius: 10px;
+    margin-left: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.form-group {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.form-check-input {
+    width: auto;
+    justify-content: flex-start;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+.form-check-label {
+    width: auto;
+    justify-content: flex-start!important;
+    gap: 10px;
+    font-size: 1.2em; /* Font size increased */
+}
+
+.form-check label {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
