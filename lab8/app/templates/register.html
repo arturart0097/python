@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block title %} Register-Page{% endblock %}
+
+{% block body %}
+
+<body>
+    <div>
+        <div style="padding: 20px">
+            <div style="padding: 20px;">
+                <div>
+                    <img alt="..." src="{{ url_for('static', filename='images/q2.jpg') }}" class="card-img" style="width: 90%; border-radius: 20%; border: 5px solid #8600c4;">
+                    <h4 style="color: #8600c4;">Register</h4>
+                </div>
+                <div>
+                    <form class="form" method="POST" action="{{ url_for('register') }}" novalidate style="color: #fff;">
+                        {{ form.csrf_token }}
+                            {{ render_field(form.username)}}
+                            {{ render_field(form.email)}}
+                            {{ render_field(form.password)}}
+                            {{ render_field(form.confirm_password)}}
+                        <div>
+                            {{ form.submit(class="error") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

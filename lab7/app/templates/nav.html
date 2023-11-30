@@ -1,0 +1,27 @@
+{% set menu =  {'About me': url_for('about'), 
+                'Skills': url_for('skill'),
+                'Contacts': url_for('contact'),
+                'Info': url_for('info'),
+                'To Do': url_for('todo'),
+                'Register': url_for('register'),
+                'Login': url_for('login'),
+                }
+                %}
+
+<nav>
+    <div>
+        <ul>
+
+            <li class="nav-item">
+               <a href="{{ url_for('index') }}" >Portfolio</a>
+            </li>
+            {% for name, url in menu.items() %}
+            <li class="nav-item">
+                <a href="{{ url }}" class="nav-link">
+                    <p>{{ name }}</p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</nav>
