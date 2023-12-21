@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block title %} Reviews{% endblock %}
+{% block body %}
+
+<div style="text-align: center; padding-top: 20px;">
+    <h2 style="color: #8600c4;">
+        Here you can leave your feedback</h2>
+</div>
+<div style="max-width: 60%;">
+    <div style="color: #fff5;">
+        <form class="form" method="post" action="{{ url_for('review') }}" novalidate>
+            {{ form.csrf_token }}
+                {{ render_field(form.name)}}
+                {{ render_field(form.text)}}
+                {{ render_field(form.rating)}}
+            {{ form.submit(class="btn-round btn btn-primary btn-lg") }}
+        </form>
+    </div>
+</div>
+<div class="table-container">
+    <Table responsive>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Username</th>
+                <th>Review</th>
+                <th>Rating</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody style="color: #fff; background-color: #222;">
+            {% for review in reviews %}
+            <tr style="background-color: #222;">
+                <td className="text-center"style="background-color: #222;">{{ review.id }}</td>
+                <td className="text-center"style="background-color: #222;"> {{review.name}}</td>
+                <td class="value-cell"style="background-color: #222;"> {{review.text}}</td>
+                <td className="text-center"> 
+                    <span class="badge badge-primary" style="font-size: 14px;">{{review.rating}}</span> 
+                </td>
+                <td className="text-center" style="background-color: #222;"> {{review.date_posted}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </Table>
+</div>
+
+{% endblock %}
