@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% from "_formhelpers.html" import render_field %}
+{% block title %} Tags{% endblock %}
+{% block body %}
+
+<div>
+    <h2 class="title">Tags</h2>
+  </div>
+
+<div>
+    <div>
+      <div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for tag in tags %}
+              <tr>
+                <td>{{ tag.id }}</td>
+                <td>{{ tag.name }}</td>
+                <td style="display: flex; align-items: center;">
+                  <a href="{{ url_for('post.edit_tag', tag_id=tag.id) }}">Edit</a>
+                  <form action="{{ url_for('post.delete_tag', tag_id=tag.id) }}" method="post" style="display: inline-block; border: none; padding: 0">
+                    <button type="submit">Delete</button>
+                  </form>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<div style="text-align: center; padding-top: 20px;">
+    <h2 class="title">
+        Add new tag</h2>
+</div>
+<div style="max-width: 60%;">
+    <div>
+        <form class="form" method="post" action="{{ url_for('post.tags') }}" novalidate >
+            {{ form.csrf_token }}
+                {{ render_field(form.name)}}
+            {{ form.submit(class="btn-round btn btn-primary btn-lg") }}
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

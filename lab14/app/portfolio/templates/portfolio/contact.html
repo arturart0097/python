@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Contact {% endblock %}
+
+{%
+set contacts = {
+    'Your Email': url_for('static', filename='images/gmail.png'),
+}
+%}
+
+{% block body %}
+<div style="text-align: center;">
+    <h1 style="color: #8600c4;">My Contacts</h1>
+    <div>
+        {% for link, logo in contacts.items() %}
+        <div>
+            <div>
+                <a href="{{ link }}">
+                </a>
+                    <img class="contact-logo" src="{{ logo }}" alt="{{ link }}">
+                </a>
+                <p>{{ link }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

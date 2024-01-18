@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block body %}
+
+<div>
+  <div>
+    <div style="margin: 3%;">
+      <h4 style="color: #fff4;">hi</h4>
+      <h2 style="color: #fff4;">I'm <span style="color: #8600c4"> Sabetskyiii</span></h2>      
+      <h2></h2>
+    </div>
+  </div>
+  <div>
+    <img
+      style="width: 150%; border-radius: 50%; border: 5px solid #8600c4; height: 250px;"
+      src="{{ url_for('static', filename='images/kishlak.jpg') }}"
+      alt=""
+    />
+  </div>
+</div>
+
+{% include "footer.html" %} {% endblock %}
